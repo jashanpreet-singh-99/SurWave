@@ -1,0 +1,57 @@
+.parent-div-admin-survey {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    left: 92px;
+    width: calc(100vw - 102px);
+  overflow-y: auto;
+}
+
+.admin-survey-view-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  padding-right: 64px;
+  padding-top: 32px;
+}
+
+.title-surveys-info {
+  margin: 24px 64px;
+  color: #315c5a;
+}
+
+.survey-container {
+  position: relative;
+  width: 85vw;
+  margin: 12px auto;
+  border-radius: 16px;
+}
+
+.survey-container::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+.create-survey-button {
+    border-radius: 12px;
+    padding: 12px 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: medium;
+    border: none;
+    background: #d2e8fa;
+    box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 12px 0;
+}
+
+.create-survey-button:hover {
+    background: #ffffff;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.create-survey-button img {
+    margin-right: 24px;
+}
+

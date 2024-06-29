@@ -1,0 +1,81 @@
+
+.survey-card-container{
+  background-color: white;
+  width: 100%;
+  height: 22vh;
+  border-bottom: 2px dashed #e1ebeb;
+  border-radius: 16px;
+}
+
+/* On mouse-over, add a deeper shadow */
+
+.survey-card-content {
+  width: 100%; /* Adjust width as needed */
+  padding-right: 10px; /* Space between name and description */
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  /* border: 2px solid red; */
+}
+
+
+.survey-card-name {
+  font-size: 14px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  width: 20%;
+  border-left: 1px solid #3d5654; /* Add vertical line */
+  border-right: 1px solid #3d5654;
+  /* text-align: center; */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  padding: 1%;
+  height: 18vh
+}
+
+
+.survey-card-details {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 3%;
+  width: 100vh;
+  /* border: 2px solid yellow; */
+}
+
+.description {
+  font-size: 14px;
+  overflow-y: auto;
+  height: 20%;
+}
+
+.description::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+
+/* Style for description and questions */
+.survey-card-details p {
+  margin: 0;
+}
+
+.view-button {
+  background-color: #c99c34;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 10px;
+  cursor: pointer;
+  height: 40px;
+  width: 80px;
+  margin-top: 25%;
+
+}
+
+.btn-align{
+  width: 15vw;
+  display: flex;
+  justify-content: center;
+}
+
+
+

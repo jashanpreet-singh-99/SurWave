@@ -1,0 +1,22 @@
+<div class="survey-card-container">
+
+  <div class="survey-card-header">
+    Question #{{questionNum}}
+  </div>
+
+  <div class="survey-card-details">
+    {{question.questionText}}
+      <hr>
+      <div class="options">
+          <label *ngFor="let option of question.options">
+            <input type="radio"
+                   (click)="onOptionSelected(option.id!)"
+                   [name]="'question_' + question.id"
+                   [value]="option.id"
+            >
+            {{ option.optionText }}
+          </label>
+      </div>
+  </div>
+
+</div>

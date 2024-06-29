@@ -1,0 +1,14 @@
+<div
+  class="survey-question-only-container"
+  [style.background-color]="(isQuestionHovered || selectedQuestionNo == question.id) ? primaryColor : bgDarkColor"
+  [style.color]="(isQuestionHovered || selectedQuestionNo == question.id) ? whiteColor : primaryColor"
+  (mouseover)="isQuestionHovered = true"
+  (mouseout)="isQuestionHovered = false"
+  (click)="onQuestionSelected()" >
+  <span >
+    {{questionIndex}}
+  </span>
+  <p class="q-text"> {{ question.questionText }} ...</p>
+</div>
+
+

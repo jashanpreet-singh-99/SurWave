@@ -1,0 +1,53 @@
+/* Styles for the Dropdown Component */
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #c99c34;
+  color: white;
+  cursor: pointer;
+  border-radius: 24px;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #e1ebeb;
+  width: 400px; /* Adjust the width as needed */
+  height: 250px; /* Adjust the height as needed */
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  columns: 3; /* Number of columns */
+  column-gap: 20px; /* Adjust the gap between columns */
+}
+
+.column {
+  display: block;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.button-container {
+  position: absolute;
+  bottom: 10px; /* Adjust the distance from the bottom as needed */
+  left: 10px; /* Adjust the distance from the left as needed */
+  width: calc(100% - 20px); /* Make the button container full-width */
+  text-align: center;
+}
+
+.button-container button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}

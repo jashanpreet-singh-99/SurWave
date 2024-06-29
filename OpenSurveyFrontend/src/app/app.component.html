@@ -1,0 +1,9 @@
+<div class="ng-body" [style.background-color]="bgColor">
+
+  <app-navbar *ngIf="!isLoginPage()"></app-navbar>
+
+  <div class="route-container">
+    <router-outlet/>
+  </div>
+
+</div>

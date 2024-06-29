@@ -1,0 +1,75 @@
+<div class="navbar" [style.background-color]="primaryColor">
+  <div class="nav-logo-container" [style.background-color]="bgColor">
+    <img width="42" height="42" src="https://img.icons8.com/puffy/42/{{ primaryColorHLess }}/experimental-create-new-puffy.png" alt="experimental-create-new-puffy"/>
+  </div>
+
+  <div class="nav-controls-container">
+    <div
+      class="icon-wrapper"
+      (mouseover)="checkHomeColor(true)"
+      (mouseout)="checkHomeColor(false)"
+      (click)="onHomeClick()"
+    >
+      <img
+        width="36"
+        height="36"
+        (mouseover)="checkHomeColor(true)"
+        (mouseout)="checkHomeColor(false)"
+        (click)="onHomeClick()"
+        src="https://img.icons8.com/puffy/36/{{ isHomeColor }}/experimental-home-puffy.png" alt="experimental-home-puffy"/>
+      <div *ngIf="showHomeTip" class="nav-tip">
+        <p [style.color]="primaryColor" >  Dashboard </p>
+      </div>
+    </div>
+    <div
+      *ngIf="isAdmin"
+      class="icon-wrapper"
+      (mouseover)="checkSurveyColor(true)"
+      (mouseout)="checkSurveyColor(false)"
+      (click)="onSurveyClick()"
+    >
+      <img
+        width="36"
+        height="36"
+        (mouseover)="checkSurveyColor(true)"
+        (mouseout)="checkSurveyColor(false)"
+        (click)="onSurveyClick()"
+        src="https://img.icons8.com/puffy/36/{{ isSurveyColor }}/experimental-document-puffy.png" alt="experimental-document-puffy"/>
+      <div *ngIf="showSurveyTip" class="nav-tip">
+        <p [style.color]="primaryColor" > Manage Survey </p>
+      </div>
+    </div>
+    <div
+      *ngIf="isAdmin"
+      class="icon-wrapper"
+      (mouseover)="checkUserColor(true)"
+      (mouseout)="checkUserColor(false)"
+      (click)="onManageUserClick()"
+    >
+      <img
+        width="36"
+        height="36"
+        (mouseover)="checkUserColor(true)"
+        (mouseout)="checkUserColor(false)"
+        (click)="onManageUserClick()"
+        src="https://img.icons8.com/puffy/36/{{ isManageUserColor }}/experimental-contacts-puffy.png" alt="experimental-contacts-puffy"/>
+      <div *ngIf="showUserTip" class="nav-tip">
+        <p [style.color]="primaryColor" > Manage User </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-logout-container"
+       [style.border-color]="bgColor"
+       (mouseover)="isLogoutColor = primaryColorHLess"
+       (mouseout)="isLogoutColor = bgColorHLess"
+  >
+    <img
+      width="32"
+      height="32"
+      (mouseover)="isLogoutColor = primaryColorHLess"
+      (mouseout)="isLogoutColor = bgColorHLess"
+      (click)="logoutUser()"
+      src="https://img.icons8.com/puffy/32/{{ isLogoutColor }}/experimental-share-rounded-puffy.png" alt="experimental-share-rounded-puffy"/>
+  </div>
+</div>

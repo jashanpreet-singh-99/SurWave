@@ -1,0 +1,103 @@
+<div class="parent-70-30-container">
+  <div class="container-left" [style.background-color]="bgColor">
+    <div class="c-left-result-panel">
+      <div class="c-l-left-panel">
+        <button (click)="changeChartMode(0)"
+                class="button-secondary-s"
+                [ngClass]="{'active': chartMode == 0}"
+                [style.background-color]="(chartMode == 0 || isPieHovered) ? '#ffffff' : bgDarkColor"
+                (mouseover)="isPieHovered = true"
+                (mouseout)="isPieHovered = false"
+        >
+          <img width="48" height="48" src="https://img.icons8.com/dotty/80/415c5a/pie-chart.png" alt="pie-chart"/>
+        </button>
+        <button (click)="changeChartMode(1)"
+                class="button-secondary-s"
+                [ngClass]="{'active': chartMode == 1}"
+                [style.background-color]="(chartMode == 1 || isBarHovered) ? '#ffffff' : bgDarkColor"
+                (mouseover)="isBarHovered = true"
+                (mouseout)="isBarHovered = false"
+        >
+          <img width="48" height="48" src="https://img.icons8.com/dotty/80/415c5a/bar-chart.png" alt="bar-chart"/>
+        </button>
+        <button (click)="changeChartMode(2)"
+                class="button-secondary-s"
+                [ngClass]="{'active': chartMode == 2}"
+                [style.background-color]="(chartMode == 2 || isDoughnutHovered) ? '#ffffff' : bgDarkColor"
+                (mouseover)="isDoughnutHovered = true"
+                (mouseout)="isDoughnutHovered = false"
+        >
+          <img width="48" height="48" src="https://img.icons8.com/dotty/80/415c5a/doughnut-chart.png" alt="doughnut-chart"/>
+        </button>
+      </div>
+      <!-- Graph panel -->
+      <div class="parent-charts-container">
+        <div *ngIf="chartMode == 0" class="pie-chart-container">
+          <app-pie-chart [data]="questionResponse" (selectedOption)="onOptionChanged($event)"></app-pie-chart>
+        </div>
+        <div *ngIf="chartMode == 1" class="bar-chart-container">
+          <app-bar-chart-component [data]="questionResponse" (selectedOption)="onOptionChanged($event)"></app-bar-chart-component>
+        </div>
+        <div *ngIf="chartMode == 2" class="donut-chart-container">
+          <app-doughnut-chart [data]="questionResponse" (selectedOption)="onOptionChanged($event)" ></app-doughnut-chart>
+        </div>
+      </div>
+    </div>
+    <div class="question-text-label" [style.color]="primaryColor">
+      <p>{{ questions[selectedQuestionIndex]?.questionText }} </p>
+    </div>
+    <div *ngIf="totalResponses > 0" class="options-info-container" [style.background-color]="bgDarkColor" [style.color]="primaryColor">
+      <span [style.background-color]="selectedColor" [style.color]="bgColor">
+        {{ selectedOptionCount }} / {{ totalResponses }}
+      </span>
+      <p> {{ selectedPercentage| round }} % : {{ selectedOptionLabel }} </p>
+    </div>
+    <div class="c-left-bottom-info">
+      <div class="c-left-bottom-header">
+        <h2 class="c-left-bottom-title" *ngIf="survey">{{ survey.name }}</h2>
+        <button class="button-secondary-export" (click)="exportSurveyReport()">
+          <img width="28" height="28" src="https://img.icons8.com/dotty/48/415c5a/export-csv.png" alt="export-csv"/>
+          Export
+        </button>
+      </div>
+      <p class="c-left-bottom-text" *ngIf="survey">{{ survey.description }}</p>
+    </div>
+  </div>
+  <div class="container-right">
+    <div class="progress-container" [style.background-color]="bgDarkColor">
+      <div class="progress-wrapper">
+        <div class="progress-bar-info">
+          <div class="progress-bar-info-title">
+            <h1 [style.color]="primaryColor">{{responseRate| round}}</h1>
+            <p [style.color]="primaryColor"> % </p>
+          </div>
+          <div class="progress-bar-label">
+            <p>Response Rate</p>
+          </div>
+        </div>
+      <round-progress
+        class="progress-bar"
+        [current]="responseRate"
+        [max]="100"
+        [color]="primaryColor"
+        [background]="bgColor"
+        [stroke]="15"
+        [semicircle]="true"
+        [rounded]="true"
+        [clockwise]="true"
+        [responsive]="true"
+        [duration]="800"
+        [animation]="'easeInOutQuart'"
+        [animationDelay]="0"
+      >
+      </round-progress>
+      </div>
+    </div>
+
+    <h2 class="c-right-title">Questions</h2>
+    <div class="divider"></div>
+    <ng-container *ngFor="let question of questions; index as i ">
+      <app-survey-question-only-card [question]="question" [questionIndex]="i + 1" [selectedQuestionNo]="selectedQuestionNo" (selectedQuestion)="onQuestionSelectionChange(i, $event)"></app-survey-question-only-card>
+    </ng-container>
+  </div>
+</div>

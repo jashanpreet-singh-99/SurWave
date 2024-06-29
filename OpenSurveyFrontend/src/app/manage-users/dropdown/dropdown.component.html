@@ -1,0 +1,10 @@
+<div class="dropdown">
+  <button (click)="toggleDropdown()">Add Group</button>
+  <div *ngIf="isOpen" class="dropdown-content">
+    <div class="column" *ngFor="let option of options">
+      <label>
+        <input type="checkbox" [(ngModel)]="option.selected" (change)="onCheckboxChange(option)"/> {{ option.label }}
+      </label>
+    </div>
+  </div>
+</div>

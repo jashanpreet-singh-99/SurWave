@@ -1,0 +1,51 @@
+<div class="admin-dash-header">
+    <span></span>
+    <app-header-info-card
+            cardIconSrc="https://img.icons8.com/3d-fluency/94/document.png"
+            cardLabel="Active Survey"
+            [cardValue]="activeSurvey.toString()"
+            [isPrimary]="false"
+            style="flex: 1"
+    ></app-header-info-card>
+    <span></span>
+    <app-header-info-card
+            cardIconSrc="https://img.icons8.com/3d-fluency/94/clock.png"
+            cardLabel="Almost Complete"
+            [cardValue]="almostComplete.toString()"
+            style="flex: 1"
+    ></app-header-info-card>
+    <span></span>
+    <app-header-info-card
+            cardIconSrc="https://img.icons8.com/3d-fluency/94/change-user-male.png"
+            cardLabel="User Responses"
+            [cardValue]="userResponsesValue.toString()"
+            style="flex: 1"
+    ></app-header-info-card>
+    <span></span>
+    <app-header-info-card
+            cardLabel="Active Users"
+            [cardValue]="activeUsers.toString()"
+            style="flex: 1"
+    ></app-header-info-card>
+    <span></span>
+</div>
+<div class="split-info-container">
+  <div class="split-info-left">
+    <h1 class="title-surveys-info">Continue working on Draft Survey</h1>
+    <div class="survey-container">
+      <div *ngFor="let survey of surveys" class="list-editable-survey">
+        <app-user-survey-card
+          *ngIf="isEditable(survey)"
+          [survey]="survey"
+          [showViewButton]="false"
+          [showEditButton]="true"
+        ></app-user-survey-card>
+      </div>
+    </div>
+  </div>
+  <div class="split-info-right">
+
+  </div>
+
+</div>
+

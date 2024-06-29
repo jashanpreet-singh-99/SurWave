@@ -1,0 +1,42 @@
+.info-card {
+    border-radius: 24px;
+    padding: 12px 12px;
+    border: none;
+    background-color: #415c5a;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.info-card h3 {
+    margin: 12px;
+    font-weight: 300;
+    font-size: large;
+}
+
+.info-card h2 {
+    margin: 12px;
+    font-weight: 500;
+    font-size: x-large;
+}
+
+.icons-hanging {
+    bottom: -30px;
+    right: 32px;
+    position: absolute;
+}
+
+.info-card:hover img {
+    animation: shake 0.5s;
+    animation-iteration-count: 1;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0);}
+    20% { transform: translateX(-5px) rotate(5deg);}
+    40% { transform: translateX(5px) rotate(-5deg);}
+    60% { transform: translateX(-5px) rotate(5deg);}
+    80% { transform: translateX(5px) rotate(-5deg); }
+    100% { transform: translateX(0);}
+}
+

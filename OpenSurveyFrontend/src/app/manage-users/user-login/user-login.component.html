@@ -1,0 +1,24 @@
+<div class="parent-container">
+  <div class="login-container">
+    <div class="brand">
+      <img src="https://img.icons8.com/ios/100/{{primaryColorHashLess}}/survey.png" alt="User Icon" width="50" height="50">
+      <h1>SurWavy</h1>
+    </div>
+    <div class="login-card">
+      <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+        <label>
+          <img src="https://img.icons8.com/ios/50/ffffff/new-post--v1.png" alt="User Icon" width="24" height="24">
+          <input type="text" name="email" placeholder="Email Address" required ngModel>
+        </label>
+        <label>
+          <img src="https://img.icons8.com/ios/50/ffffff/password--v1.png" alt="Password Icon" width="24" height="24">
+          <input type="password" name="password" placeholder="Password" required ngModel>
+        </label>
+        <div class="center-btn">
+          <button class="login-button" id="signup-btn">Log In</button>
+        </div>
+      </form>
+    </div>
+    <a (click)="onForgetPassword(loginForm)" style="cursor: pointer;" [style.color]="primaryColor">Forgot password?</a>
+  </div>
+</div>

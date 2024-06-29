@@ -1,0 +1,80 @@
+<div class="over-flow">
+  <div class="center">
+
+    <div class="upper-line">
+      <div class="input-body">
+        <input class="input-box" [(ngModel)]="User" placeholder="Search user...">
+      </div>
+
+      <div>
+        <button class="search-button" (click)="userFilter()">Search</button>
+      </div>
+
+      <button class="open-button" (click)="openForm(true)">Register User</button>
+    </div>
+
+    <div class="lower-line">
+
+      <div class="dropdown">
+        <button class="group-button" (click)="toggleDropdown()">Group Filter</button>
+        <div *ngIf="isOpen" class="dropdown-content">  
+          <div class="column" *ngFor="let option of options">
+            <label>
+              <input type="checkbox" [(ngModel)]="option.selected" (change)="onCheckboxChange(option)"/> {{ option.label }}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="clear-button-container">
+        <button class="clear-button" (click)="onCityFilterClear()">Clear</button>
+      </div>
+
+      <button class="open-button" (click)="openForm(false)">Create Group</button>
+    </div>
+
+    <form *ngIf="showRegister" #groupForm="ngForm" class="lowest-line">
+          <input class="register-box" type="text" placeholder="Enter Email" name="Email" required
+            [(ngModel)]="userReg.Email" #Email="ngModel">
+
+          <input class="register-box" type="text" placeholder="Enter Username" name="Username" required
+            [(ngModel)]="userReg.Username" #Username="ngModel">
+
+            <button class="search-button" (click)="registerUser(groupForm)">Register User</button>
+
+            <button type="button" class="clear-button" (click)="closeForm(true)">Close</button>
+    </form>
+
+    <form *ngIf="showGroup" class="lowest-line" #groupForm="ngForm">
+        <input class="register-box" type="text" placeholder="Enter Group Name" name="GroupName" required
+          [(ngModel)]="userGroup.groupName" #groupName="ngModel">
+      
+      <button type="submit" class="search-button" (click)="createGroup(groupForm)">Create Group</button>
+      <button type="button" class="clear-button" (click)="closeForm(false)">Close</button>
+    </form>
+
+  </div>
+
+  <div class="center-lower">
+    <div class="header-label">
+      <div class="user-body">
+        <img width="30" height="30" src="https://img.icons8.com/ios/50/user--v1.png" alt="user--v1" />
+      </div>
+      <div class="email-body">
+        <img width="30" height="30" src="https://img.icons8.com/ios/50/new-post--v1.png" alt="new-post--v1" />
+      </div>
+      <div class="group-body">
+        <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/group-foreground-selected.png"
+          alt="group-foreground-selected" />
+      </div>
+      <div class="active-body">
+        <img width="30" height="30" src="https://img.icons8.com/ios/50/check-all--v1.png" alt="check-all--v1" />
+      </div>
+    </div>
+    <div class="card-body">
+      <div *ngFor="let user of users|filter:searchUser:'User':searchGroup">
+        <app-user-card [user]="user"></app-user-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.ng-body {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+}
+
+.route-container{
+  flex: 1;
+}

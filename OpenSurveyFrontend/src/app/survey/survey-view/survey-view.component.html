@@ -1,0 +1,141 @@
+<div class="parent-70-30-container">
+  <div class="container-left" [style.background-color]="bgColor">
+    <div *ngIf="isSubmitted" class="submission-completed-div">
+      <ng-lottie class="completed-anim" [options]="lottieOptions"></ng-lottie>
+      <p [style.background-color]="bgDarkColor" [style.color]="primaryColor">Redirecting to survey list in {{ surveyTimeout }}</p>
+    </div>
+    <div *ngIf="!isSubmitted"
+         class="c-left-result-panel">
+      <div  class="question-container" [style.color]="primaryColor">
+        <div class="linear-progress-container" [style.background-color]="bgDarkColor">
+          <div class="linear-progress" [ngStyle]="{ 'width': currentTimer + '%', 'background-color': primaryColor}"></div>
+        </div>
+
+        <div class="question-no-label">Question {{ this.selectedQuestionIndex + 1 }}</div>
+        <div class="question-text-label">
+          <p> {{ selectedQuestion?.questionText }} </p>
+        </div>
+        <div class="question-options">
+          <div *ngFor="let option of selectedQuestion?.options; index as i"
+               class="options-selector"
+               [style.background-color]="(optionsHover[i] || optionSelectionIndex == option.id) ? primaryColor : bgDarkColor"
+               [style.color]="(optionsHover[i] || optionSelectionIndex == option.id) ? bgDarkColor : primaryColor"
+               (mouseover)="optionsHover[i] = true"
+               (mouseout)="optionsHover[i] = false"
+               (click)="onOptionSelectionChange(i)"
+          >
+            <span>{{i + 1}}</span>
+            <p>{{ option.optionText}}</p>
+          </div>
+        </div>
+        <div
+          *ngIf="showErrorDiv"
+          class="error-div"
+          [style.background-color]="errorRedColor">
+          <img width="32" height="32" src="https://img.icons8.com/pastel-glyph/64/error--v1.png" alt="error--v1"/>
+          <p>You missed this question. As per the survey, all questions are mandatory.</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!isSubmitted"
+      class="page-controls-container" [style.background-color]="bgColor" [style.color]="primaryColor">
+      <button class="secondary-control-btn"
+              [style.border-color]="disablePrevBtn ? disabledColor : primaryColor"
+              [style.color]="disablePrevBtn ? disabledColor : isPrvQuestionHovered ? bgColor : primaryColor"
+              [style.background-color]="disablePrevBtn ? bgColor : isPrvQuestionHovered ? primaryColor : bgColor"
+              (mouseover)="isPrvQuestionHovered = true"
+              (mouseout)="isPrvQuestionHovered = false"
+              (click)="getPrevQuestion()"
+              [disabled]="disablePrevBtn"
+      >Previous Question</button>
+      <ng-container *ngFor="let pCtr of pageCtr; index as i">
+        <button class="page-control-btn"
+                *ngIf="pCtr > -1"
+                [style.background-color]="(pageCtrHover[i] || pageSelectionIndex == i + 1) ? primaryColor : bgDarkColor"
+                [style.color]="(pageCtrHover[i] || pageSelectionIndex == i + 1) ? bgDarkColor : primaryColor"
+                (mouseover)="pageCtrHover[i] = true"
+                (mouseout)="pageCtrHover[i] = false"
+
+
+        >
+          {{pCtr + 1}}
+        </button>
+      </ng-container>
+      <button class="primary-control-btn"
+              [style.background-color]="disableNxtBtn ? bgColor : isNxtQuestionHovered ? secondaryColor : primaryColor"
+              [style.color]="disableNxtBtn ? disabledColor : isNxtQuestionHovered ? whiteColor : bgDarkColor"
+              [style.border-color]="disableNxtBtn ? disabledColor : primaryColor"
+              (mouseover)="isNxtQuestionHovered = true"
+              (mouseout)="isNxtQuestionHovered = false"
+              (click)="getNextQuestion()"
+              [disabled]="disableNxtBtn"
+      >Next Question</button>
+    </div>
+    <div class="c-left-bottom-info">
+      <div class="c-left-bottom-header">
+        <h2 class="c-left-bottom-title" *ngIf="survey">{{ survey.name }}</h2>
+        <div style="display: flex; flex-direction: row">
+          <button
+            class="secondary-control-btn marg-right-24"
+            [style.background-color]="isSaveButtonHovered? secondaryColor : whiteColor"
+            [style.color]="isSaveButtonHovered ? whiteColor : secondaryColor"
+            [style.border-color]="secondaryColor"
+            (mouseover)="isSaveButtonHovered = true"
+            (mouseout)="isSaveButtonHovered = false"
+            (click)="onSubmitSurvey()"
+          >Save</button>
+<!--          <button class="primary-control-btn"-->
+<!--                  [style.background-color]="isSubmitButtonHovered ? primaryColor : secondaryColor"-->
+<!--                  [style.color]="isSubmitButtonHovered ? bgColor : whiteColor"-->
+<!--                  (mouseover)="isSubmitButtonHovered = true"-->
+<!--                  (mouseout)="isSubmitButtonHovered = false"-->
+<!--                  (click)="onSubmitSurvey()"-->
+<!--          >Submit</button>-->
+        </div>
+      </div>
+      <p class="c-left-bottom-text" *ngIf="survey">{{ survey.description }}</p>
+    </div>
+  </div>
+  <div class="container-right">
+    <div class="progress-container" [style.background-color]="bgDarkColor">
+      <div class="progress-wrapper">
+        <div class="progress-bar-info">
+          <div class="progress-bar-info-title">
+            <h1 [style.color]="primaryColor">{{completedPercentage | round}}</h1>
+            <p [style.color]="primaryColor"> % </p>
+          </div>
+          <div class="progress-bar-label">
+            <p>Survey Progress</p>
+          </div>
+        </div>
+        <round-progress
+          class="progress-bar"
+          [current]="completedPercentage"
+          [max]="100"
+          [color]="primaryColor"
+          [background]="bgColor"
+          [stroke]="15"
+          [semicircle]="true"
+          [rounded]="true"
+          [clockwise]="true"
+          [responsive]="true"
+          [duration]="800"
+          [animation]="'easeInOutQuart'"
+          [animationDelay]="0"
+        >
+        </round-progress>
+      </div>
+    </div>
+
+    <h2 class="c-right-title">Questions</h2>
+    <div class="divider"></div>
+    <ng-container *ngFor="let question of questions; index as i ">
+      <app-survey-question-only-card
+        [question]="question"
+        [questionIndex]="i + 1"
+        [selectedQuestionNo]="selectedQuestion?.id!"
+        (selectedQuestion)="onQuestionSelectionChange(i, $event)"
+      ></app-survey-question-only-card>
+    </ng-container>
+  </div>
+</div>

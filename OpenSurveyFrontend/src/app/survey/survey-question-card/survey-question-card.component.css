@@ -1,0 +1,60 @@
+
+.survey-card-container{
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  background: white;
+  border-radius: 25px;
+  border: solid black;
+  margin: 0 auto;
+  padding-left: 2px;
+  margin-top: 20px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.survey-card-container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+
+.survey-card-header {
+  background-color: #F0F0F0;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  text-align: left;
+  font-size: 30px;
+  padding-left: 20px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+
+}
+
+
+.survey-card-details {
+  padding: 10px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+
+}
+
+.view-button {
+  background-color: #333; /* Dark grey background */
+  color: #fff; /* White text color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.view-button:hover {
+  background-color: #555; /* Slightly darker grey on hover */
+}
+
+.btn-align{
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+}

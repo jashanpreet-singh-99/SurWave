@@ -1,0 +1,40 @@
+<div class="title">
+  <h1>Welcome, {{userName}}</h1>
+  <div class="circle">
+    <div class="wave" id="wave"></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="filter-card">
+    <button class="view-button" [class.selected]="selectedOption === 'available'" (click)="selectOption('available'); showAll(); changeWaveColor('#2C74B3')">Available</button>
+    <button class="view-button" [class.selected]="selectedOption === 'expiring'" (click)="selectOption('expiring'); showExpiring(); changeWaveColor('yellow')">Expiring Soon</button>
+    <button class="view-button" [class.selected]="selectedOption === 'expired'" (click)="selectOption('expired'); showExpired(); changeWaveColor('red')">Expired</button>
+    <button class="view-button" [class.selected]="selectedOption === 'completed'" (click)="selectOption('completed'); showCompleted(); changeWaveColor('limegreen')">Completed</button>
+    <div class="selected-indicator" [style.background-color]="selectedColor"></div>
+  </div>
+
+  <h5 style="margin-left: 4%; margin-top: 2%;">Surveys ({{surveyLength}})</h5>
+
+  <div *ngIf="!expired" class="survey-container">
+    <div *ngFor="let survey of surveys; let i = index">
+      <app-user-survey-card [survey]="survey" [ngClass]="getClassBasedOnPosition(i)" [showViewButton]="true"></app-user-survey-card>
+    </div>
+  </div>
+
+  <div *ngIf="expired" class="survey-container">
+    <div *ngFor="let survey of surveys; let i = index">
+      <app-user-survey-card [survey]="survey" [ngClass]="getClassBasedOnPosition(i)" [showViewButton]="false"></app-user-survey-card>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,114 @@
+/* Style for the card */
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 100%;
+  /* Make the card 100% wide */
+  cursor: pointer;
+  background-color: white;
+}
+
+.survey-card-container{
+  background-color: white;
+  width: 100%;
+  height: 10%;
+  border-bottom: 2px dashed #e1ebeb;
+  border-radius: 16px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Padding and alignment for the card container */
+.container {
+  padding: 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Style for each content section */
+.content-section {
+  flex: 1;
+  text-align: left;
+  padding: 8px;
+}
+
+/* Style for the switch and slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Style for the slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cccccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+/* Styles for the slider when checked */
+input:checked + .slider {
+  background-color: #3d5654;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #3d5654;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Style for the switch container */
+.switch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styles for active and inactive labels */
+.active {
+  color: #3d5654;
+}
+
+.inactive {
+  color: #A5A6A6;
+}

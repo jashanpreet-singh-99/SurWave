@@ -1,0 +1,11 @@
+<canvas baseChart
+        class="chart"
+        [datasets]="barChartData"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [labels]="barChartLabels"
+        [type]="barChartType"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"
+>
+</canvas>

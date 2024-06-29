@@ -1,0 +1,51 @@
+<div class="survey-card-container">
+  <div class="survey-card-content">
+
+    <div class="survey-card-details">
+
+      <p style="font-size: 22px;">{{survey.name}}</p>
+      <hr>
+
+      <div class="description">
+        Description: {{survey.description}}
+      </div>
+
+
+    </div>
+
+    <div class="survey-card-name">
+      <p>Questions: {{numQuestions}}</p>
+      <p>Est. Time: {{approxTime}} mins</p>
+      <p>Expires: {{survey.deadline | date: 'dd MMMM, yyyy'}}</p>
+
+    </div>
+
+    <div class="btn-align">
+      <button
+              *ngIf="showViewButton"
+              class="view-button"
+              routerLink="/survey/{{survey.id}}"
+      >
+        Start
+      </button>
+    </div>
+    <div class="btn-align">
+      <button
+              *ngIf="showEditButton"
+              class="view-button"
+              (click)="editSurvey()"
+      >
+        Edit
+      </button>
+    </div>
+    <div class="btn-align">
+      <button
+              *ngIf="showResultButton"
+              class="view-button"
+              (click)="viewResultsSurvey()"
+      >
+        View Result
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="survey-card-container">
+  <div class="container">
+    <div class="content-section">
+      <p>{{user.user.userName}}</p>
+    </div>
+    <div class="content-section">
+      <p>{{user.user.email}}</p>
+    </div>
+    <div class="content-section">
+      <label><app-dropdown [userEmail]="user.user.email"></app-dropdown></label>
+    </div>
+    <div class="switch-container">
+      <label class="switch">
+        <input *ngIf="user.user.isActive" type="checkbox" checked (click)="userActive()">
+        <input *ngIf="!user.user.isActive" type="checkbox" (click)="userActive()">
+        <span class="slider round"></span>
+      </label>
+      <label class="active" *ngIf="user.user.isActive">Active</label>
+      <label class="inactive" *ngIf="!user.user.isActive">Inactive</label>
+    </div>
+  </div>
+</div>

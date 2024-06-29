@@ -1,0 +1,20 @@
+<div
+  class="complete-overlay">
+  <div class="animation-wrapper">
+    <ng-lottie height="400px"  class="error-anim" [options]="lottieOptions"></ng-lottie>
+    <div
+      class="animation-text-label"
+      [style.background-color]="errorRedColor"
+    >
+      “Oops! This path is a secret trail, access denied!”
+    </div>
+    <button
+      class="skip-btn"
+      [style.border-color]="primaryColor"
+      [style.background-color]="isBackButtonHovered ? primaryColor : bgColor"
+      [style.color]="isBackButtonHovered ? bgColor : primaryColor"
+      (mouseover)="isBackButtonHovered = true"
+      (mouseout)="isBackButtonHovered = false"
+      (click)="backToDashboard()"> Back To Dashboard </button>
+  </div>
+</div>

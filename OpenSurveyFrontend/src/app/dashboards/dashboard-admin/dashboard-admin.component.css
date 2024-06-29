@@ -1,0 +1,40 @@
+.admin-dash-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 48px;
+    color: #e1ebeb;
+}
+
+.admin-dash-header span {
+    width: 48px;
+}
+
+.split-info-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 64px;
+}
+
+.split-info-left {
+  flex: 1;
+}
+
+.chart-container-admin {
+}
+
+.title-surveys-info {
+  margin: 24px 64px;
+  color: #315c5a;
+}
+
+.survey-container {
+  position: absolute;
+  width: 83vw;
+  height: 60vh;
+  margin: 12px;
+  overflow-y: auto;
+  margin-left: 3.7%;
+  border-radius: 16px;
+  margin-right: 4%;
+}
