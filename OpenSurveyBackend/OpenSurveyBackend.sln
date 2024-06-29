@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSurveyBackend", "OpenSurveyBackend.csproj", "{329BE046-A37C-4980-B1DF-1D61DD7FEAEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{329BE046-A37C-4980-B1DF-1D61DD7FEAEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{329BE046-A37C-4980-B1DF-1D61DD7FEAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{329BE046-A37C-4980-B1DF-1D61DD7FEAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{329BE046-A37C-4980-B1DF-1D61DD7FEAEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {40C8203E-6726-4052-9E26-219CC6BDDD86}
+	EndGlobalSection
+EndGlobal
